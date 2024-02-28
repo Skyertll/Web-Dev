@@ -1,0 +1,28 @@
+<div>
+    <h3>
+    <a href="{{product.link}}">
+    {{ product.name }}
+    </a>
+    </h3>
+    <div class = 'images-row'>
+    <div *ngFor="let image of product.images">
+      <img [src]="image" alt="{{ product.name }}">
+    </div>
+  </div>
+
+    <p *ngIf="product.description">
+    Description: {{ product.description }}
+    </p>
+    <p *ngIf="product.rating">
+      Rating: {{ product.rating }}
+      </p>
+
+    <button type="button" (click)="share()">
+      Share
+    </button>
+    
+    <app-product-alerts
+      [product]="product" 
+      (notify)="onNotify()">
+    </app-product-alerts>>
+</div>
